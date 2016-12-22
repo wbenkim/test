@@ -1,0 +1,163 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.5
+-- Dumped by pg_dump version 9.5.5
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: sampledata; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE sampledata WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'English_United States.1252' LC_CTYPE = 'English_United States.1252';
+
+
+ALTER DATABASE sampledata OWNER TO postgres;
+
+\connect sampledata
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: sample data; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "sample data" (
+    "ID" integer NOT NULL,
+    "Farmers Name" character varying(255),
+    "Farm managemnent Category" character varying(255),
+    "Crop" character varying(255),
+    "Variety" character varying(255),
+    "Cropping system" character varying(255),
+    "Plot size" character varying(255),
+    "Spacing" character varying(255),
+    "Harvesting date" character varying(255),
+    "Sampling date" timestamp without time zone,
+    "Stand count at harvest" double precision,
+    "No of plants harvest" double precision,
+    "Total biomass Fwt (kg)" double precision,
+    "Total grain Fwt (kg)" double precision,
+    "Total Stems + shelled pods Fwt (kg)" double precision,
+    "Stems + shelled pods sample Fwt (g)" double precision,
+    "Stems + shelled pods sample oven Dwt (g)" double precision,
+    "Field grain sample Fwt (g)" double precision,
+    "Field grain sample oven Dwt (g)" double precision,
+    "Total stems + shelled pods oven Dwt (Kg)" double precision,
+    "Total grain oven Dwt (kg)" double precision,
+    "Total biomass oven Dwt (kg)" double precision
+);
+
+
+ALTER TABLE "sample data" OWNER TO postgres;
+
+--
+-- Name: sample data_ID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "sample data_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "sample data_ID_seq" OWNER TO postgres;
+
+--
+-- Name: sample data_ID_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "sample data_ID_seq" OWNED BY "sample data"."ID";
+
+
+--
+-- Name: ID; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "sample data" ALTER COLUMN "ID" SET DEFAULT nextval('"sample data_ID_seq"'::regclass);
+
+
+--
+-- Data for Name: sample data; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "sample data" ("ID", "Farmers Name", "Farm managemnent Category", "Crop", "Variety", "Cropping system", "Plot size", "Spacing", "Harvesting date", "Sampling date", "Stand count at harvest", "No of plants harvest", "Total biomass Fwt (kg)", "Total grain Fwt (kg)", "Total Stems + shelled pods Fwt (kg)", "Stems + shelled pods sample Fwt (g)", "Stems + shelled pods sample oven Dwt (g)", "Field grain sample Fwt (g)", "Field grain sample oven Dwt (g)", "Total stems + shelled pods oven Dwt (Kg)", "Total grain oven Dwt (kg)", "Total biomass oven Dwt (kg)") FROM stdin;
+1	Jane Nyambura	Low	Beans	Wairimu	Sole	6x4 m2	45×10 cm	8/12/2015	2015-10-22 00:00:00	367	367	6	3.2999999999999998	2.7000000000000002	124	108	1234	1089	2.3500000000000001	2.9100000000000001	5.2599999999999998
+2	Christopher Macharia	Low	Maize	Kifam	Sole	6x4 m2	60×5 cm	9/21/2015	2015-10-23 00:00:00	222	222	1.1000000000000001	0	1.1000000000000001	338	217	0	0	0.70999999999999996	0	0.70999999999999996
+3	Mary Mbatia	Medium	Beans	Kifam	Sole	6x4 m2	65×35 cm	8/12/2015	2015-10-22 00:00:00	127	127	8.5	4.5999999999999996	3.8999999999999999	291	257	1046	953	3.4399999999999999	4.1900000000000004	7.6399999999999997
+4	Mary Mbatia	Medium	Beans	KAT B2	Sole	6x4 m2	60×30 cm	7/27/2015	2015-10-23 00:00:00	148	148	5	2.6000000000000001	2.3999999999999999	266	235	1001	906	2.1200000000000001	2.3500000000000001	4.4699999999999998
+5	Josphat Kangethe	Medium	Maize	Gituru Kanini	Sole	6x4 m2	50×20cm	10/70/2015	2015-10-23 00:00:00	387	387	8.4000000000000004	4	4.4000000000000004	113	96	644	579	3.7400000000000002	3.6000000000000001	7.3300000000000001
+6	Joseph Kiarie	Medium	Beans	Kifam	Sole	6x4 m2	45×20 cm	8/13/2015	2015-10-23 00:00:00	280	280	4.5999999999999996	1.3	3.2999999999999998	163	143	565	506	2.8999999999999999	1.1599999999999999	4.0599999999999996
+7	Francis Karanja	Medium	Beans	Gituru Kanini	Sole	6x4 m2	40×30cm	8/25/2015	2015-10-24 00:00:00	223	223	9.9000000000000004	4.9000000000000004	5	332	284	1444	1383	4.2800000000000002	4.6900000000000004	8.9700000000000006
+8	Francis Karanja	Medium	Maize	Rose Coco	Sole	6x4 m2	40×20cm	8/15/2015	2015-10-24 00:00:00	252	252	7	2.5	4.5	388	336	1009	912	3.8999999999999999	2.2599999999999998	6.1600000000000001
+9	Patrick Mbirwe	High	Maize	Kifam	Sole	6x4 m2	40×15cm	8/13/2015	2015-10-24 00:00:00	264	264	7.0999999999999996	3.6000000000000001	3.5	234	202	1387	1262	3.02	3.2799999999999998	6.2999999999999998
+10	Wairimu Kanyiri	High	Beans	Kifam	Sole	6x4 m2	40×20 cm	8/13/2015	2015-10-23 00:00:00	247	247	5	2.7000000000000002	2.2999999999999998	172	152	1574	1419	2.0299999999999998	2.4300000000000002	4.4699999999999998
+11	George Kahuho	Medium	Maize	Kifam	intercrop	6x4 m2	60×30cm	8/12/2015	2015-10-24 00:00:00	129	129	2	1	1	146	128	270	240	0.88	0.89000000000000001	1.77
+12	Josphat Kangethe	Medium	Beans	Kifam	intercrop	6x4 m2	75×50cm	8/13/2015	2015-10-22 00:00:00	189	189	2.2999999999999998	0.80000000000000004	1.5	107	93	314	278	1.3	0.70999999999999996	2.0099999999999998
+\.
+
+
+--
+-- Name: sample data_ID_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"sample data_ID_seq"', 12, true);
+
+
+--
+-- Name: sample data_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "sample data"
+    ADD CONSTRAINT "sample data_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
